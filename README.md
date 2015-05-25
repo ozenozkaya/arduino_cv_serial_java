@@ -7,11 +7,11 @@ This application uses rxtx serial libraries for serial communication.
 
 SerialComm.java class implements a SerialPortEventListener as yıu can see below.
 
-class SerialComm implements SerialPortEventListener 
+    class SerialComm implements SerialPortEventListener 
 
 Because SerialComm will use some of the properties of the SerialTerminal.java class, an instance of a SerialTerminal class can be registered during the contruction of SerialComm class.
 
-public SerialComm(SerialTerminal newSerialTerm) {
+    public SerialComm(SerialTerminal newSerialTerm) {
 		this.serialTermApp = newSerialTerm;
 	}
 	
