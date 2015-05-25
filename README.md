@@ -17,7 +17,7 @@ public SerialComm(SerialTerminal newSerialTerm) {
 	
 The connect function will get the serial port identifier from the port name. It will take the baudrate from the combobox in the GUI and it will set the serial parameters as 8,N,1. Then it will connect by registering the related event listeners.
 
-public void connect(String portName) throws Exception {
+       public void connect(String portName) throws Exception {
 		CommPortIdentifier portIdentifier = CommPortIdentifier
 				.getPortIdentifier(portName);
 		if (portIdentifier.isCurrentlyOwned()) {
@@ -55,7 +55,7 @@ public void connect(String portName) throws Exception {
 	}
 	
 	
-	Serial event will handle any messages. Received message will be read byte by byte and resulting message will be keeped after receiving a new line feed ('\n'). Then the incoming message will be padded to the serial receive terminal.
+Serial event will handle any messages. Received message will be read byte by byte and resulting message will be keeped after receiving a new line feed ('\n'). Then the incoming message will be padded to the serial receive terminal.
 	
 	@Override
 	public void serialEvent(SerialPortEvent arg0) {
