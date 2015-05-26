@@ -111,7 +111,7 @@ public class SerialTerminal {
 		JLabel lblBaud = new JLabel("BaudRate:");
 
 		comboBoxBaud.addItem("9600");
-
+		comboBoxBaud.addItem("115200");
 		JButton btnOpenClose = new JButton("Open");
 		btnOpenClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -158,8 +158,9 @@ public class SerialTerminal {
 		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
+					String tmp = textAreaSerialSend.getText() + "\r\n";
 					serialComm.getSerialPortWriter().write(
-							textAreaSerialSend.getText().getBytes());
+							tmp.getBytes());
 					writeLog("Message: \"" + textAreaSerialSend.getText()
 							+ "\" sent", Color.GREEN);
 				} catch (IOException e) {
@@ -189,7 +190,7 @@ public class SerialTerminal {
 																Alignment.TRAILING)
 														.addComponent(
 																textAreaSerialSend,
-																Alignment.LEADING,
+																Alignment.CENTER,
 																GroupLayout.DEFAULT_SIZE,
 																559,
 																Short.MAX_VALUE)
@@ -282,13 +283,10 @@ public class SerialTerminal {
 																GroupLayout.PREFERRED_SIZE)
 														.addComponent(
 																btnOpenClose))
-										.addPreferredGap(
-												ComponentPlacement.RELATED,
-												GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)
+										.addGap(12)
 										.addComponent(panelSerialSend,
 												GroupLayout.PREFERRED_SIZE,
-												133, GroupLayout.PREFERRED_SIZE)
+												133, Short.MAX_VALUE)
 										.addContainerGap()));
 		panelSerialConf.setLayout(gl_panelSerialConf);
 
@@ -325,8 +323,9 @@ public class SerialTerminal {
 								.addContainerGap()
 								.addComponent(scrollPaneTerminal,
 										GroupLayout.PREFERRED_SIZE, 149,
-										GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(23, Short.MAX_VALUE)));
+										Short.MAX_VALUE)
+								.addGap(12)
+								));
 		panelSerialReceive.setLayout(gl_panelSerialReceive);
 
 		JFrame.setDefaultLookAndFeelDecorated(true);
