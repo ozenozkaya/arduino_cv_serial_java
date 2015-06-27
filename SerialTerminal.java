@@ -43,6 +43,7 @@ public class SerialTerminal {
 	JComboBox<String> comboBoxBaud = new JComboBox<String>();
 	JTextPane txtpnSerialReceive = new JTextPane();
 	JTextArea textAreaSerialSend = new JTextArea();
+	JButton btnOpenClose = new JButton("Open");
 	boolean isSerialPortOpened = false;
 
 	/**
@@ -112,7 +113,7 @@ public class SerialTerminal {
 
 		comboBoxBaud.addItem("9600");
 		comboBoxBaud.addItem("115200");
-		JButton btnOpenClose = new JButton("Open");
+		
 		btnOpenClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (isSerialPortOpened == false) {
